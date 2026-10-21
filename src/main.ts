@@ -24,6 +24,9 @@ try {
 
 	renderCommits(structure);
 } catch (error) {
-	console.error("Could not get data:", error);
+	console.error(
+		"Could not get data:",
+		error instanceof Error ? error.message : error,
+	);
 	process.exit(1);
 }
