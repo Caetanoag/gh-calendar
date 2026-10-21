@@ -1,20 +1,44 @@
 {
 	"name": "gh-calendar",
-	"author": "Caetano G.",
-	"private": true,
-	"main": "src/main.ts",
-	"repository": {
-		"url": "git+https://github.com/caetanoag/gh-calendar"
-	},
 	"version": "0.1.1",
+	"author": "Caetano G.",
+	"description": "Display your GitHub contribution calendar as a colored grid in the terminal",
+	"license": "GPL-3.0-only",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/caetanoag/gh-calendar.git"
+	},
+	"homepage": "https://github.com/caetanoag/gh-calendar#readme",
+	"bugs": {
+		"url": "https://github.com/caetanoag/gh-calendar/issues"
+	},
+	"keywords": [
+		"github",
+		"contributions",
+		"calendar",
+		"graph",
+		"cli",
+		"terminal"
+	],
+	"type": "module",
+	"bin": {
+		"gh-calendar": "./dist/main.js"
+	},
+	"main": "./dist/main.js",
+	"files": [
+		"dist"
+	],
 	"scripts": {
-		"typecheck": "bun check",
-		"run": "bun run src/main.ts"
+		"build": "bun build src/main.ts --outdir dist --target node --format esm",
+		"dev": "bun run src/main.ts",
+		"typecheck": "tsc --noEmit",
+		"prepublishOnly": "bun run build"
+	},
+	"engines": {
+		"node": ">=18"
 	},
 	"devDependencies": {
-		"@types/bun": "latest"
-	},
-	"peerDependencies": {
-		"typescript": "^7"
+		"@types/bun": "latest",
+		"typescript": "^5.7.0"
 	}
 }
