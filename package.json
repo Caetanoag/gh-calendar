@@ -1,13 +1,20 @@
 {
-  "name": "gh-calendar",
-  "private": true,
-  "scripts": {
-    "typecheck": "bun check"
-  },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^7"
-  }
+	"name": "gh-calendar",
+	"author": "Caetano G.",
+	"private": true,
+	"main": "src/main.ts",
+	"repository": {
+		"url": "git+https://github.com/caetanoag/gh-calendar"
+	},
+	"version": "0.1.1",
+	"scripts": {
+		"typecheck": "bun check",
+		"run": "bun run src/main.ts"
+	},
+	"devDependencies": {
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^7"
+	}
 }
