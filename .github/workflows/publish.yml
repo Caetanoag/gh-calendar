@@ -8,7 +8,7 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    environment: npm 
+    environment: npm
     permissions:
       contents: read 
       id-token: write
@@ -22,9 +22,6 @@ jobs:
         with:
           node-version: '22.14.0'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Update npm
-        run: npm install -g npm@11
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
@@ -41,4 +38,6 @@ jobs:
         run: bun run build
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: |
+          sed -i '/_authToken/d' .npmrc
+          npx npm@latest publish --provenance --access public
