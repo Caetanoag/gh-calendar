@@ -1,13 +1,5 @@
 import type { ContributionCalendarResponse, SingleCommitDay } from "./schema";
 
-const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-
-if (!GITHUB_USERNAME)
-	throw new Error("You must define GITHUB_USERNAME in your .env file");
-if (!GITHUB_TOKEN)
-	throw new Error("You must define GITHUB_TOKEN in your .env file");
-
 const query = `
   query($login: String!, $from: DateTime!, $to: DateTime!) {
     user(login: $login) {
@@ -28,8 +20,15 @@ const query = `
 `;
 
 export async function fetchContributions(
+	GITHUB_USERNAME: string,
+	GITHUB_TOKEN: string,
 	days: number,
 ): Promise<SingleCommitDay[]> {
+	if (!GITHUB_USERNAME)
+		throw new Error("You must define GITHUB_USERNAME in your .env file");
+	if (!GITHUB_TOKEN)
+		throw new Error("You must define GITHUB_TOKEN in your .env file");
+
 	const to = new Date();
 	const from = new Date(to.getTime() - days * 24 * 60 * 60 * 1000);
 
@@ -66,7 +65,7 @@ export async function fetchContributions(
 	const user = json.data.user;
 	if (!user) throw new Error(`User "${GITHUB_USERNAME}" not found`);
 
-	return user.contributionsCollection.contributionCalendar.weeks.flatMap(
-		(week) => week.contributionDays,
-	);
+	return user.contributionsCollection.contributionCalendar.weeks
+		.flatMap((week) => week.contributionDays)
+		.filter((day): day is SingleCommitDay => day !== undefined);
 }
