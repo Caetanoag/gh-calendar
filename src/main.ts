@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { fetchContributions } from "./api";
 import { groupIntoWeeks, renderCommits } from "./render";
 import type { ContributionCalendarResponse } from "./schema";
