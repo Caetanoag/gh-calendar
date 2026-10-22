@@ -25,15 +25,15 @@ const readEnv = (): Partial<Config> => ({
 });
 
 async function promptMissing(partial: Partial<Config>): Promise<Config> {
-	intro("gh-calendar — primeira configuração");
+	intro("gh-calendar — setup");
 
 	let { username, token } = partial;
 
 	if (!username) {
 		const answer = await text({
-			message: "Seu usuário do GitHub:",
+			message: "GitHub username:",
 			placeholder: "octocat",
-			validate: (v) => (v && v.length > 0 ? undefined : "Obrigatório"),
+			validate: (v) => (v && v.length > 0 ? undefined : "Required"),
 		});
 		if (isCancel(answer)) {
 			cancel("Cancelado.");
@@ -44,8 +44,8 @@ async function promptMissing(partial: Partial<Config>): Promise<Config> {
 
 	if (!token) {
 		const answer = await password({
-			message: "Personal Access Token (escopo read:user):",
-			validate: (v) => (v && v.length > 0 ? undefined : "Obrigatório"),
+			message: "Personal Access Token (scope read:user):",
+			validate: (v) => (v && v.length > 0 ? undefined : "Required"),
 		});
 		if (isCancel(answer)) {
 			cancel("Cancelado.");
