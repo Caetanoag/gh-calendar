@@ -24,7 +24,7 @@
 	"bin": {
 		"gh-calendar": "./dist/main.js"
 	},
-	"main": "./dist/main.js",
+	"main": "dist/main.js",
 	"files": [
 		"dist"
 	],
