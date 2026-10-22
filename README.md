@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/gh-calendar.svg)](https://www.npmjs.com/package/gh-calendar)
 [![License: GPL-3.0-only](https://img.shields.io/badge/license-GPL--3.0--only-blue.svg)](LICENSE)
-[![Node.js >= 18](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org)
+[![Node.js >= 20.12.0](https://img.shields.io/badge/node-%3E%3D18-brightgreen.svg)](https://nodejs.org)
 
 Display your GitHub contribution calendar as a colored grid right in your terminal — just like the contribution graph on your GitHub profile.
 
