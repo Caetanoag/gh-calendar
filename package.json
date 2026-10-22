@@ -1,6 +1,6 @@
 {
 	"name": "gh-calendar",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Display your GitHub contribution calendar as a colored grid in the terminal",
 	"keywords": [
 		"github",
