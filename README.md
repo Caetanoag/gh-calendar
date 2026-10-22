@@ -31,7 +31,7 @@ Display your GitHub contribution calendar as a colored grid right in your termin
 
 ## Requirements
 
-- Node.js **18 or newer** (or [Bun](https://bun.sh) for development)
+- Node.js **20.12.0 or newer** (or [Bun](https://bun.sh) for development)
 - A terminal with **truecolor** support (most modern terminals)
 - A GitHub **classic Personal Access Token** with the `read:user` scope
 
